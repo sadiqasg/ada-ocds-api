@@ -1,17 +1,17 @@
 // import * as functions from "firebase-functions";
-import * as admin from "firebase-admin";
+// import * as admin from "firebase-admin";
 import express, { Request, Response } from "express";
-// import cors from "cors";
+import cors from "cors";
 import apiRoutes from "./api";
 import bodyParser from "body-parser";
 import path from "path";
 
 const app = express();
 
-// app.use(cors({credentials: true, origin: "*"}));
+app.use(cors({credentials: true, origin: "*"}));
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3000, http://localhost:3001, https://adamawa-ocds.web.app");
+    res.header("Access-Control-Allow-Origin", "https://adamawa-ocds.web.app/"); // change to http://localhost:3001 for testing
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
@@ -19,7 +19,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-admin.initializeApp();
+// admin.initializeApp();
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());

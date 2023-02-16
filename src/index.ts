@@ -1,7 +1,7 @@
 // import * as functions from "firebase-functions";
 import * as admin from "firebase-admin";
 import express, { Request, Response } from "express";
-import cors from "cors";
+// import cors from "cors";
 import apiRoutes from "./api";
 import bodyParser from "body-parser";
 import path from "path";
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 app.use("/api", apiRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-    res.status(200).send("Welcome to Adamawa OCDS API");
+    res.status(200).send("Adamawa OCDS API v2");
 });
 
 // exports.app = functions.https.onRequest(app);

@@ -11,7 +11,7 @@ const app = express();
 // app.use(cors({credentials: true, origin: "*"}));
 
 app.use(function (req, res, next) {
-    res.header("Access-Control-Allow-Origin", "http://localhost:3001");
+    res.header("Access-Control-Allow-Origin", "http://localhost:3000, http://localhost:3001, https://adamawa-ocds.web.app");
     res.header(
         "Access-Control-Allow-Headers",
         "Origin, X-Requested-With, Content-Type, Accept"
@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 app.use("/api", apiRoutes);
 
 app.get("/", (req: Request, res: Response) => {
-    res.status(200).send("Adamawa OCDS API v2");
+    res.status(200).send("Adamawa OCDS API");
 });
 
 // exports.app = functions.https.onRequest(app);
